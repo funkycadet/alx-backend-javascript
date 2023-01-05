@@ -6,10 +6,10 @@ interface Student {
 }
 
 const student1: Student = {
-  firstName: 'David',
-  lastName: 'Beckham',
+  firstName: "David",
+  lastName: "Beckham",
   age: 33,
-  location: 'Germany',
+  location: "Germany",
 };
 
 const student2: Student = {
@@ -19,10 +19,7 @@ const student2: Student = {
   location: "England",
 };
 
-const studentsList: Student[] = [
-    student1,
-    student2
-];
+const studentsList: Student[] = [student1, student2];
 
 const body: HTMLBodyElement = document.getElementsByTagName("body")[0];
 const table: HTMLTableElement = document.createElement("table");

@@ -1,11 +1,11 @@
-const fs = require('fs');
+const { readFile } = require('fs');
 
 function countStudents(file) {
   const students = {};
   const fields = {};
   let length = 0;
   return new Promise((resolve, reject) => {
-    fs(file, (error, data) => {
+    readFile(file, (error, data) => {
       if (error) {
         reject(Error('Cannot load the database'));
       } else {

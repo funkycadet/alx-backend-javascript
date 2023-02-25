@@ -8,11 +8,11 @@ class StudentsController {
       const keys = Object.keys(students);
       keys.sort();
       for (let i = 0; i < keys.length; i += 1) {
-        output.push(`Number of studens in ${keys[i]}: ${students[keys[i]].length}. List: ${students[keys[i]].join(', ')}`);
+        output.push(`Number of students in ${keys[i]}: ${students[keys[i]].length}. List: ${students[keys[i]].join(', ')}`);
       }
       res.status(200).send(output.join('\n'));
     }).catch(() => {
-      res.status(200).send('Cannot load the database');
+      res.status(500).send('Cannot load the database');
     });
   }
 

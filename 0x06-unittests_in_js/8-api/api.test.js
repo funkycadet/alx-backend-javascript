@@ -4,7 +4,7 @@ const expect = require("chai").expect;
 
 describe("Index page", function () {
   const options = {
-    url: "http://localhost:3456/",
+    url: "http://localhost:7865/",
     method: "GET"
   };
   it("check correct status code", function (done) {

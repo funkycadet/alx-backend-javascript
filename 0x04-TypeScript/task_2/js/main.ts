@@ -20,6 +20,7 @@ class Director implements DirectorInterface {
   workDirectorTasks(): string {
     return "Getting to director tasks";
   }
+  tryWork = (): string => "Current work";
 }
 
 class Teacher implements TeacherInterface {
@@ -36,12 +37,36 @@ class Teacher implements TeacherInterface {
 
 export function createEmployee(salary: string | number) {
   if (salary < 500) {
-    return Teacher.name;
+    return new Teacher();
   } else {
-    return Director.name;
+    return new Director();
   }
+}
+
+export function isDirector(employee: Teacher | Director): boolean {
+  return employee instanceof Director;
+}
+
+export function executeWork(employee: Teacher | Director): void {
+  if (employee instanceof Teacher) {
+    employee.workTeacherTasks();
+  } else {
+    employee.workDirectorTasks();
+  }
+}
+
+type Subjects = 'Math' | 'History';
+
+export function teachClass(todayClass: Subjects): string {
+  if (todayClass == 'Math') {
+    return 'Teaching Math';
+  }
+  return 'Teaching History';
 }
 
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
 console.log(createEmployee("$500"));
+
+executeWork(createEmployee(200));
+executeWork(createEmployee(1000));
